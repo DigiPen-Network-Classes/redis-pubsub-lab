@@ -1,4 +1,7 @@
 "use strict";
+import dotenv from 'dotenv';
+dotenv.config();
+
 // reading and writing to the console
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
@@ -7,8 +10,11 @@ const terminal = readline.createInterface(input, output);
 // redis client
 import redis from 'redis';
 const redisPublishClient = redis.createClient();
+//const redisPublishClient = redis.createClient({ password: process.env.REDIS_PASS });
 await redisPublishClient.connect();
+
 const redisSubscribeClient = redis.createClient();
+//const redisSubscribeClient = redis.createClient({ password: process.env.REDIS_PASS });
 await redisSubscribeClient.connect();
 
 import { ChatClient } from './chat.js';
