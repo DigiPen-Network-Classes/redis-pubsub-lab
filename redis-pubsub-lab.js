@@ -17,8 +17,8 @@ const client = new ChatClient(redisPublishClient, redisSubscribeClient, terminal
 console.log("Ready to Chat!");
 await client.run();
 
- // cleanup
- terminal.close();
- await redisPublishClient.disconnect();
- await redisSubscribeClient.disconnect();
- console.log("Bye.");
+// cleanup
+terminal.close();
+await redisPublishClient.disconnect();
+await redisSubscribeClient.disconnect();
+console.log("Bye.");
