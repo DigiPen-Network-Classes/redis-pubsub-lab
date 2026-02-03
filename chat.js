@@ -32,8 +32,12 @@ export class ChatClient {
     }
 
     async subscribeToChannel() {
-        // TODO!
-        // await this.redisSubscribeClient.subscribe(??????);
+        try {
+            // TODO!
+            // await this.redisSubscribeClient.subscribe(??????);
+        } catch(err) {
+            this.writeError(`Failed subscribe to channel: ${err}`);
+        }
     }
 
     async send(msg) {

@@ -9,12 +9,10 @@ const terminal = readline.createInterface(input, output);
 
 // redis client
 import redis from 'redis';
-const redisPublishClient = redis.createClient();
-//const redisPublishClient = redis.createClient({ password: process.env.REDIS_PASS });
+const redisPublishClient = redis.createClient({ url: `redis://:${process.env.REDIS_PASS}@127.0.0.1:6379`});
 await redisPublishClient.connect();
 
-const redisSubscribeClient = redis.createClient();
-//const redisSubscribeClient = redis.createClient({ password: process.env.REDIS_PASS });
+const redisSubscribeClient = redis.createClient({ url: `redis://:${process.env.REDIS_PASS}@127.0.0.1:6379`});
 await redisSubscribeClient.connect();
 
 import { ChatClient } from './chat.js';
